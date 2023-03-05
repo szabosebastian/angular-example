@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "6.3.0",
+    "generators": {
+      "example": {
+        "generatorName": "typescript-angular",
+        "inputSpec": "http://localhost:9001/api/v3/api-docs",
+        "output": "src/app/api/example",
+        "additionalProperties": {
+          "fileNaming": "kebab-case",
+          "useSingleRequestParameter": true
+        },
+        "skipValidateSpec": true
+      }
+    }
+  }
+}

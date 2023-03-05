@@ -1,0 +1,17 @@
+<form [formGroup]="form" (ngSubmit)="register()">
+  <div class="field d-flex flex-column">
+    <label for="username">Username</label>
+    <input id="username" type="text" formControlName="username" pInputText/>
+
+    <label for="email">Email</label>
+    <input id="email" type="text" aria-describedby="username1-help" formControlName="email" pInputText/>
+
+    <label for="password1">Password</label>
+    <input id="password1" type="password" aria-describedby="username1-help" pInputText/>
+
+    <label for="password2">Password</label>
+    <input id="password2" type="password" aria-describedby="username1-help" formControlName="password" pInputText/>
+
+    <button pButton type="submit" label="Click" [disabled]="form.invalid"></button>
+  </div>
+</form>
