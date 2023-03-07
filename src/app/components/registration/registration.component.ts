@@ -6,6 +6,7 @@ import { InputTextModule } from "primeng/inputtext";
 import { ButtonModule } from "primeng/button";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { AuthControllerService } from "../../api/example";
+import { ToastService } from "../../services/toast.service";
 
 @Component({
   selector: 'app-registration',
@@ -25,7 +26,8 @@ export class RegistrationComponent {
 
   constructor(
     private authControllerService: AuthControllerService,
-    public ref: DynamicDialogRef
+    public ref: DynamicDialogRef,
+    private toastService: ToastService
   ) {
   }
 
@@ -38,7 +40,11 @@ export class RegistrationComponent {
           password: this.form.controls.password.value!
         }
       }
-    ).subscribe();
+    ).subscribe((res) => {
+      if(res){
+        this.toastService.successToast("Kész")
+      }
+    });
     console.log(this.form.value);
   }
 }
